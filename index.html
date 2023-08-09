@@ -1,0 +1,75 @@
+<html>
+	<head>
+	<title>Icecream Application by SP</title>
+	<style>
+		*{font-size:40px;}
+		body{background-image:url("tt.jpg");  background-repeat: no-repeat;background-size:1550px 720px;}
+		h1{color:darkblue;}h2{color:darkblue;}
+	</style>
+	<script>
+		function show()
+		{
+			event.preventDefault();
+			let name=document.getElementById("name");
+			let or=document.getElementById("or");
+			let tf=document.getElementById("tf");
+			let cs=document.getElementById("cs");
+                        let sp=document.getElementById("sp");
+			let ans=document.getElementById("ans");
+			
+			if(name.value=="")
+			{
+				alert("Number should not be Empty");
+				name.value="";
+				name.focus();
+				ans.innerHTML="";
+				return;
+			}
+
+			if(name.value.trim()=="")
+  			{
+				alert("Name Should not have Empty Spaces ");
+				name.value="";
+                                ans.innerHTML="";
+				name.focus();
+				return;
+			}
+
+			if(!name.value.match(/^[A-Za-z ]+$/))
+			{
+				alert("Name Should only have Alphabets ");
+				name.value="";
+                                ans.innerHTML="";
+				name.focus();
+				return;
+			}
+
+			let topping="";
+			if(or.checked)		topping+="Oreo";
+			if(tf.checked)          topping+="Tuti Fruti";
+			if(cs.checked)		topping+="Chocolate Syrup";
+			if(sp.checked)          topping+="Sprinkles";
+
+			let msg="Name:" + name.value + "Toppings:" + topping ;
+			ans.innerHTML=msg;
+
+		}
+	</script>
+	</head>
+	<body>
+	<center>
+	<h1>Icecream Application</h1>
+	<form onsubmit="show()">
+	<input type="text" placeholder="Enter Icecream Flavour" id="name" />
+	<br><br>
+	<input type="checkbox" id="or"  /> OREO
+        <input type="checkbox" id="tf"  /> Tuti Fruiti
+        <input type="checkbox" id="cs"  /> Chocolate Syrup
+        <input type="checkbox" id="sp"  /> Sprinkles
+	<br><br>
+	<input type="Submit" />
+	</form>
+	<h2 id="ans"></h2>
+	</center>
+	</body>
+</html>
